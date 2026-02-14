@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+    <title>WALLIZ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor de flores animadas -->
+    <div class="flowers-container" id="flowersContainer"></div>
+    
+    <!-- Pantalla de inicio -->
+    <section class="intro-screen" id="introScreen">
+        <div class="intro-content">
+            <h1 class="main-title">Nuestra Historia</h1>
+            <p class="intro-subtitle">Un viaje a través de nuestros momentos más especiales</p>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Desliza para comenzar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor principal de la historia -->
+    <main class="story-container">
+        
+        <!-- Capítulo 1: El comienzo -->
+        <section class="chapter" data-chapter="1">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo I</span>
+                <h2 class="chapter-title">El Día Que Todo Cambió</h2>
+                <div class="chapter-text">
+                    <p>
+                        <!-- Personaliza este texto con tu historia -->
+                        Aún recuerdo ese día, despues de tanto tiempo sentia que podia tener algo lindo con usted. Aunque al principio costo mucho
+                        hubo muhas dificultades y momentos de incertidumbre, pero cada paso que dimos juntos nos acercaba más. Fue en ese instante 
+                        cuando supe que quería escribir nuestra historia juntos.
+                    </p>
+                </div>
+                <div class="photo-frame">
+                    <div class="photo-placeholder" data-text="El dia del comienzo">
+                        <img src="fotos/1.jpeg" alt="El dia del comienzo">
+                    </div>
+                    <p class="photo-caption">El dia del comienzo</p>
+                </div>
+            </div>
+            <div class="chapter-decoration">
+                <svg class="rose-decoration" viewBox="0 0 100 100">
+                    <path class="rose-path" d="M50,20 Q60,30 50,40 Q40,30 50,20" fill="none" stroke="currentColor" stroke-width="1"/>
+                    <path class="rose-path" d="M50,25 Q65,35 50,50 Q35,35 50,25" fill="none" stroke="currentColor" stroke-width="1"/>
+                    <path class="rose-path" d="M50,30 Q70,45 50,60 Q30,45 50,30" fill="none" stroke="currentColor" stroke-width="1"/>
+                    <line class="stem" x1="50" y1="60" x2="50" y2="90" stroke="currentColor" stroke-width="1"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Capítulo 2: Conociéndonos -->
+        <section class="chapter" data-chapter="2">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo II</span>
+                <h2 class="chapter-title">El paso que nos acercó</h2>
+                <div class="chapter-text">
+                    <p>
+                        <!-- Personaliza este texto con tu historia -->
+                        Aun recuerdo el audio de 7 min en el cual me constaste lo que sentias, ese dia fui muy feliz y me di cuenta que realmente queria estar contigo,
+                        Y asi a partir de ese momento cada vez nos fuimos acercando mas y mas hasta que llegamos a este punto en el que estamos hoy, y cada dia me siento mas feliz de tenerte a mi lado.
+                    </p>
+                </div>
+                <div class="photo-gallery">
+                    <div class="photo-frame small">
+                        <div class="photo-placeholder">
+                        <img src="fotos/5.jpeg" alt="Momento especial">
+                        </div>
+                    </div>
+                    <div class="photo-frame small">
+                        <div class="photo-placeholder">
+                            <img src="fotos/3.jpeg" alt="Momento especial">
+                        </div>
+                    </div>
+                    <div class="photo-frame small">
+                        <div class="photo-placeholder">
+                            <img src="fotos/4.jpeg" alt="Momento especial">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capítulo 3: El primer te quiero -->
+        <section class="chapter" data-chapter="3">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo III</span>
+                <h2 class="chapter-title">Cuando Supe Que Eras Tú</h2>
+                <div class="chapter-text">
+                    <p>
+                        <!-- Personaliza este texto con tu historia -->
+                        Hubo un momento exacto en el que lo supe. No fue algo grandioso ni dramático. 
+                        Fue en la simplicidad de un instante ordinario donde entendí que contigo me sentia tan bien y tan yo y todo contigo se sentia tan bien.
+                    </p>
+                </div>
+                <div class="photo-frame large">
+                    <div class="photo-placeholder">
+                        <img src="fotos/6.jpeg" alt="Momento del te quiero">
+                    </div>
+                    <p class="photo-caption">Un momento especial</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capítulo 4: Aventuras juntos -->
+        <section class="chapter" data-chapter="4">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo IV</span>
+                <h2 class="chapter-title">Nuestras Aventuras</h2>
+                <div class="chapter-text">
+                    <p>
+                        <!-- Personaliza este texto con tu historia -->
+                        Y desde ese momento, cada día ha sido una nueva aventura compartida contigo y amo compartir mi tiempo contigo asi 
+                        como amo que a usted le guste compartir tiempo conmigo.
+                    </p>
+                </div>
+                <div class="memories-grid">
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/7.jpeg" alt="Aventura 1">
+                            <span>Aventura 1</span>
+                        </div>
+                        <p class="memory-text">Como olvidar nuestra primera cita donde me encontraba muy neervioso</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/8.jpeg" alt="Aventura 2">
+                            <span>Aventura 2</span>
+                        </div>
+                        <p class="memory-text">El dia donde comenzamos a salir formalmente como pareja</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/9.jpeg" alt="Aventura 3">
+                            <span>Aventura 3</span>
+                        </div>
+                        <p class="memory-text">Hata esperar que la llegaran a ver se sentia tan comodo con usted</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/10.jpeg" alt="Aventura 4">
+                            <span>Aventura 4</span>
+                        </div>
+                        <p class="memory-text">Una foto que me gusta mucho de nosotros</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/11.jpeg" alt="Aventura 5">
+                            <span>Aventura 5</span>
+                        </div>
+                        <p class="memory-text">Un dia muy especial para usted, que tambien se convertio en un dia especial para mi.</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/12.jpeg" alt="Aventura 6">
+                            <span>Aventura 6</span>
+                        </div>
+                        <p class="memory-text">El dia que le regalere rosas por primera vez y realmente no se quien era mas feliz de ambos</p>
+                </div>
+                <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/13.jpeg" alt="Aventura 7">
+                            <span>Aventura 7</span>
+                        </div>
+                        <p class="memory-text">Nuestro picnic en casa fue hermoso</p>
+                    </div>
+                <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/14.jpeg" alt="Aventura 8">
+                            <span>Aventura 8</span>
+                        </div>
+                        <p class="memory-text">Cocinar con usted siempre se siente muy bien</p>
+                    </div>
+                <div class="memory-card">
+                        <div class="photo-placeholder">
+                            <img src="fotos/15.jpeg" alt="Aventura 9">
+                            <span>Aventura 9</span>
+                        </div>
+                        <p class="memory-text">Nuestro intento de ir a ver el atardecer juntos que 
+                            aunque no lo pudimos ver el hecho de verla a los ojos ya estaba feliz 
+                            porque no hay paisaje mas hermosos que sus lindos ojos</p>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Capítulo 5: Lo que amo de ti -->
+        <section class="chapter" data-chapter="5">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo V</span>
+                <h2 class="chapter-title">Lo Que Amo de Ti</h2>
+                <div class="love-list">
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>Tu sonrisa que ilumina mis días más oscuros</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>La forma en que me miras y me haces sentir especial</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>Tu bondad infinita y tu corazón puro</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>Cada pequeño detalle que te hace única</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>La forma en que me haces reír sin razón</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>El hecho de tenerte a mi lado, sin importar el tiempo que pase</p>
+                    </div>
+                    <div class="love-item">
+                        <div class="love-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <p>Como te amo cada día más</p>
+                    </div>
+                    <!-- Agrega más razones aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Capítulo Final: Promesas -->
+        <section class="chapter final-chapter" data-chapter="6">
+            <div class="chapter-content">
+                <span class="chapter-number">Capítulo Final</span>
+                <h2 class="chapter-title">Mi Promesa Para Ti</h2>
+                <div class="promise-text">
+                    <p>
+                        <!-- Personaliza con tu mensaje final -->
+                        Hoy, en este día especial, aunque a tu lado todo los dias son especiales para mi pero hoy 14 de Febrero
+                        quiero prometerte que cada amanecer será una nueva oportunidad 
+                        para amarte más. Que mis brazos siempre serán tu refugio y mi corazón, tu hogar.
+                    </p>
+                    <p>
+                        Gracias por elegirme, por amarme con mis imperfecciones y por hacer de cada día 
+                        una aventura que quiero vivir a tu lado.
+                    </p>
+                    <p class="signature">
+                        Con todo mi amor, hoy y siempre.
+                    </p>
+                </div>
+                <div class="photo-frame final-photo">
+                    <div class="photo-placeholder">
+                        <img src="fotos/16.jpeg" alt="Nuestra foto favorita">
+                        <span>Su foto favorita juntos</span>
+                    </div>
+                </div>
+                <div class="final-message">
+                    <h3>Feliz San Valentín, mi amor</h3>
+                    <p>Gracias por ser mi compañera de vida, mi mejor amiga y el amor de mi vida. Te amo más de lo que las palabras pueden expresar.</p>
+                </div>
+                
+                <!-- Botón Gracias y Lirio -->
+                <div class="thanks-section">
+                    <button class="thanks-button" id="thanksButton">Gracias</button>
+                    <canvas id="lilyCanvas" width="300" height="400"></canvas>
+                    <p class="thanks-message" id="thanksMessage">Te amo con todo mi corazón</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navegación de capítulos -->
+    <nav class="chapter-nav" id="chapterNav">
+        <button class="nav-dot active" data-chapter="1"></button>
+        <button class="nav-dot" data-chapter="2"></button>
+        <button class="nav-dot" data-chapter="3"></button>
+        <button class="nav-dot" data-chapter="4"></button>
+        <button class="nav-dot" data-chapter="5"></button>
+        <button class="nav-dot" data-chapter="6"></button>
+    </nav>
+
+    <!-- Botón para música (opcional) -->
+    <button class="music-toggle" id="musicToggle" aria-label="Activar música">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+    </button>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+        <source src="musica/tiroteo.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

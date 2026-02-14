@@ -1,0 +1,815 @@
+/* ========================================
+   Variables y Configuración Base
+   ======================================== */
+:root {
+    /* Paleta de colores vino */
+    --color-wine: #722F37;
+    --color-wine-dark: #4A1C23;
+    --color-wine-light: #8B3A42;
+    --color-burgundy: #800020;
+    --color-rose: #C4A484;
+    --color-cream: #FDF5E6;
+    --color-ivory: #FFFFF0;
+    --color-gold: #D4AF37;
+    
+    /* Colores de texto */
+    --text-primary: #2C1810;
+    --text-secondary: #5C4033;
+    --text-light: #8B7355;
+    
+    /* Tipografías */
+    --font-elegant: 'Cormorant Garamond', Georgia, serif;
+    --font-clean: 'Montserrat', Arial, sans-serif;
+    
+    /* Transiciones */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s ease;
+}
+
+/* ========================================
+   Reset y Base
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    font-family: var(--font-elegant);
+    background-color: var(--color-cream);
+    color: var(--text-primary);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   Contenedor de Flores Animadas
+   ======================================== */
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    opacity: 0;
+    animation: floatDown 15s linear infinite;
+}
+
+.flower svg {
+    width: 30px;
+    height: 30px;
+}
+
+.flower.rose {
+    color: var(--color-wine);
+}
+
+.flower.tulip {
+    color: var(--color-burgundy);
+}
+
+.flower.lily {
+    color: var(--color-wine-light);
+}
+
+@keyframes floatDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(0deg);
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* ========================================
+   Pantalla de Inicio
+   ======================================== */
+.intro-screen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-ivory) 100%);
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.intro-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(114, 47, 55, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(128, 0, 32, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.intro-content {
+    text-align: center;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.main-title {
+    font-family: var(--font-elegant);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 300;
+    color: var(--color-wine);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.main-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 1px;
+    background: var(--color-wine);
+    margin: 1.5rem auto;
+}
+
+.intro-subtitle {
+    font-family: var(--font-clean);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+    font-family: var(--font-clean);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--color-wine), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0%, 100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(0.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Capítulos - Estructura Principal
+   ======================================== */
+.story-container {
+    position: relative;
+}
+
+.chapter {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    position: relative;
+    scroll-snap-align: start;
+    background-color: var(--color-cream);
+}
+
+.chapter:nth-child(even) {
+    background-color: var(--color-ivory);
+}
+
+.chapter-content {
+    max-width: 900px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: var(--transition-smooth);
+}
+
+.chapter.visible .chapter-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chapter-number {
+    display: block;
+    font-family: var(--font-clean);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-wine);
+    margin-bottom: 1rem;
+}
+
+.chapter-title {
+    font-family: var(--font-elegant);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--color-wine-dark);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.chapter-text {
+    margin-bottom: 3rem;
+}
+
+.chapter-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 2;
+    text-align: justify;
+}
+
+/* ========================================
+   Decoraciones de Rosa
+   ======================================== */
+.chapter-decoration {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+}
+
+.rose-decoration {
+    width: 150px;
+    height: 150px;
+    color: var(--color-wine);
+}
+
+.rose-path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawRose 3s ease forwards;
+}
+
+.chapter.visible .rose-path {
+    animation: drawRose 3s ease forwards;
+}
+
+@keyframes drawRose {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ========================================
+   Marcos de Fotos
+   ======================================== */
+.photo-frame {
+    position: relative;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.photo-frame.small {
+    max-width: 200px;
+}
+
+.photo-frame.large {
+    max-width: 600px;
+}
+
+.photo-placeholder {
+    position: relative;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--color-wine) 0%, var(--color-wine-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-cream);
+    font-family: var(--font-clean);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    border: 8px solid white;
+    box-shadow: 
+        0 10px 40px rgba(114, 47, 55, 0.2),
+        0 0 0 1px rgba(114, 47, 55, 0.1);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.photo-placeholder:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 20px 60px rgba(114, 47, 55, 0.3),
+        0 0 0 1px rgba(114, 47, 55, 0.2);
+}
+
+.photo-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Ocultar el span cuando hay imagen */
+.photo-placeholder img + span,
+.photo-placeholder:has(img) span {
+    display: none;
+}
+
+.photo-caption {
+    font-family: var(--font-elegant);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ========================================
+   Galería de Fotos
+   ======================================== */
+.photo-gallery {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.photo-gallery .photo-frame {
+    margin: 0;
+    flex: 1;
+    min-width: 150px;
+    max-width: 220px;
+}
+
+/* ========================================
+   Grid de Memorias
+   ======================================== */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.memory-card {
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: var(--transition-smooth);
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(114, 47, 55, 0.15);
+}
+
+.memory-card .photo-placeholder {
+    aspect-ratio: 1;
+    border-width: 4px;
+}
+
+.memory-text {
+    font-family: var(--font-elegant);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* ========================================
+   Lista de Amor
+   ======================================== */
+.love-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.love-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-left: 3px solid var(--color-wine);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: var(--transition-smooth);
+}
+
+.chapter.visible .love-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.chapter.visible .love-item:nth-child(1) { transition-delay: 0.1s; }
+.chapter.visible .love-item:nth-child(2) { transition-delay: 0.2s; }
+.chapter.visible .love-item:nth-child(3) { transition-delay: 0.3s; }
+.chapter.visible .love-item:nth-child(4) { transition-delay: 0.4s; }
+
+.love-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    color: var(--color-wine);
+}
+
+.love-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.love-item p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ========================================
+   Capítulo Final
+   ======================================== */
+.final-chapter {
+    background: linear-gradient(135deg, var(--color-wine-dark) 0%, var(--color-wine) 100%);
+    color: var(--color-cream);
+    text-align: center;
+}
+
+.final-chapter .chapter-number,
+.final-chapter .chapter-title {
+    color: var(--color-cream);
+}
+
+.promise-text {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.promise-text p {
+    color: rgba(253, 245, 230, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.signature {
+    font-style: italic;
+    font-size: 1.3rem !important;
+    margin-top: 2rem !important;
+}
+
+.final-photo {
+    max-width: 400px;
+    margin: 3rem auto;
+}
+
+.final-photo .photo-placeholder {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.final-message {
+    margin-top: 3rem;
+}
+
+.final-message h3 {
+    font-family: var(--font-elegant);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--color-cream);
+}
+
+.final-message .date {
+    font-family: var(--font-clean);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* ========================================
+   Navegación de Capítulos
+   ======================================== */
+.chapter-nav {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--color-wine);
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0;
+}
+
+.nav-dot:hover,
+.nav-dot.active {
+    background: var(--color-wine);
+    transform: scale(1.2);
+}
+
+/* ========================================
+   Botón de Música
+   ======================================== */
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--color-wine);
+    background: white;
+    color: var(--color-wine);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.music-toggle:hover {
+    background: var(--color-wine);
+    color: white;
+}
+
+.music-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+.music-toggle.playing {
+    animation: musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(114, 47, 55, 0.4);
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    .chapter {
+        padding: 3rem 1.5rem;
+    }
+    
+    .chapter-nav {
+        right: 15px;
+    }
+    
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .music-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .chapter-decoration {
+        display: none;
+    }
+    
+    .photo-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .photo-gallery .photo-frame {
+        max-width: 280px;
+    }
+    
+    .memories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .love-item {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        letter-spacing: 0.05em;
+    }
+    
+    .intro-subtitle {
+        letter-spacing: 0.1em;
+        padding: 0 1rem;
+    }
+    
+    .memories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .love-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ========================================
+   Animaciones de Entrada
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Efectos Especiales
+   ======================================== */
+.chapter::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--color-wine), transparent);
+    opacity: 0.3;
+}
+
+.final-chapter::after {
+    display: none;
+}
+
+/* ========================================
+   Botón Gracias y Lirio
+   ======================================== */
+.thanks-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 1.5rem;
+}
+
+.thanks-button {
+    background: linear-gradient(135deg, var(--color-wine) 0%, var(--color-burgundy) 100%);
+    color: var(--color-cream);
+    font-family: var(--font-elegant);
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    border: 2px solid var(--color-gold);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: 0 5px 20px rgba(114, 47, 55, 0.3);
+    letter-spacing: 0.1em;
+}
+
+.thanks-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(114, 47, 55, 0.4);
+    background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-wine-dark) 100%);
+}
+
+.thanks-button.hidden {
+    display: none;
+}
+
+#lilyCanvas {
+    display: none;
+    background: transparent;
+}
+
+#lilyCanvas.visible {
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.thanks-message {
+    font-family: var(--font-elegant);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-cream);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.thanks-message.visible {
+    opacity: 1;
+}
+
+/* Efecto de partículas sutiles */
+.chapter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(114, 47, 55, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(128, 0, 32, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
